@@ -1,21 +1,22 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { differenceInSeconds, addDays, startOfDay } from 'date-fns';
 
 export function LandingPage() {
-  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60);
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const targetDate = startOfDay(addDays(now, 2));
+    return differenceInSeconds(targetDate, now);
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const countdown = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 0) {
-          clearInterval(countdown);
-          return 0;
-        }
-        return prevTime - 1;
-      });
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(countdown);
+    return () => clearInterval(interval);
   }, []);
 
   const formatTime = (time: number) => {
@@ -40,29 +41,33 @@ export function LandingPage() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Our Website is Launching Soon!
           </h2>
-          <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="max-w-[600px] text-muted-foreground md:text-xl lg:text-base xl:text-xl">
             Get ready for an exciting new experience. Our website is launching in:
           </p>
         </div>
         <div className="grid grid-cols-4 gap-4 text-center">
+          {/* calculate Days */}
           <div className="flex flex-col items-center">
             <div className="text-6xl font-bold text-primary">
               {String(days).padStart(2, '0')}
             </div>
             <div className="text-muted-foreground">Days</div>
           </div>
+          {/* calculate Hours */}
           <div className="flex flex-col items-center">
             <div className="text-6xl font-bold text-primary">
               {String(hours).padStart(2, '0')}
             </div>
             <div className="text-muted-foreground">Hours</div>
           </div>
+          {/* calculate Minutes */}
           <div className="flex flex-col items-center">
             <div className="text-6xl font-bold text-primary">
               {String(minutes).padStart(2, '0')}
             </div>
             <div className="text-muted-foreground">Minutes</div>
           </div>
+          {/* calculate seconds */}
           <div className="flex flex-col items-center">
             <div className="text-6xl font-bold text-primary">
               {String(seconds).padStart(2, '0')}
