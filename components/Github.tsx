@@ -27,14 +27,14 @@ export function GitHubIds() {
   return (
     <footer className="py-12 bg-primary text-muted-foreground">
       <div
-        className="container mx-auto grid grid-cols-2 sm:grid-cols-5 gap-8 px-4"
+        className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 px-4"
         data-aos="fade-up"
         data-aos-delay="200"
       >
         {githubIds.map((id, index) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-background p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            className="flex flex-col items-center bg-background p-4 sm:p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
             data-aos="zoom-in"
             data-aos-delay={100 * index}
           >
@@ -47,7 +47,7 @@ export function GitHubIds() {
               href={`https://github.com/${id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl font-semibold text-primary-foreground hover:text-secondary transition-colors duration-300"
+              className="text-base sm:text-xl font-semibold text-primary-foreground hover:text-secondary transition-colors duration-300"
             >
               {id}
             </a>

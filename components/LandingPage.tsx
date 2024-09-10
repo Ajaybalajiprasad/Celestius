@@ -66,12 +66,12 @@ export function LandingPage() {
         <div className="container px-4 md:px-6 grid md:grid-cols-2 gap-8">
           <div className="space-y-4" data-aos="fade-right">
             <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left">About Club Celestius</h2>
-            <p className="text-center md:text-left">
+            <p className="text-justify md:text-left max-w-lg mx-auto md:mx-0">
               Club Celestius is a student-run organization that aims to provide a platform for competitive programming and
               technology enthusiasts to develop their skills, collaborate on innovative projects, and connect with
               industry professionals.
             </p>
-            <p className="text-center md:text-left">
+            <p className="text-justify md:text-left">
               Our mission is to create a vibrant community where members can explore new technologies, participate in
               coding challenges, and work on real-world industrial projects. We believe in the power of mentorship and
               strive to connect our members with experienced professionals who can guide them in their academic and
@@ -79,7 +79,7 @@ export function LandingPage() {
             </p>
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-center md:text-left">To achieve these objectives, we will organize:</h3>
-              <ul className="list-disc pl-6 space-y-2 text-center md:text-left">
+              <ul className="list-disc pl-6 space-y-2 text-justify md:text-left">
                 <li>Coding Workshops: Sessions on programming languages and technologies.</li>
                 <li>Industry Expert Talks: Sessions with tech professionals sharing their experiences.</li>
                 <li>Hackathons: Themed competitions to stimulate problem-solving skills.</li>
