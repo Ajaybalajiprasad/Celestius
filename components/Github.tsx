@@ -25,9 +25,12 @@ export function GitHubIds() {
   }, []);
 
   return (
-    <footer className="py-12 bg-muted text-muted-foreground">
-      <h2 className="text-center text-3xl font-bold mb-12" data-aos="fade-up">Our GitHub Profiles</h2>
-      <div className="container mx-auto grid grid-cols-2 sm:grid-cols-5 gap-8 px-4" data-aos="fade-up" data-aos-delay="200">
+    <footer className="py-12 bg-primary text-muted-foreground">
+      <div
+        className="container mx-auto grid grid-cols-2 sm:grid-cols-5 gap-8 px-4"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         {githubIds.map((id, index) => (
           <div
             key={index}
@@ -38,7 +41,7 @@ export function GitHubIds() {
             <img
               src={`https://github.com/${id}.png`}
               alt={`${id}'s profile`}
-              className="w-16 h-16 rounded-full mb-4"
+              className="w-16 h-16 rounded-full mb-4 border-2 border-primary"
             />
             <a
               href={`https://github.com/${id}`}

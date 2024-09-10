@@ -38,14 +38,13 @@ export function LandingPage() {
           <ScrollLink to="projects" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
             Projects
           </ScrollLink>
-          <ScrollLink to="mentorship" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
-            Mentorship
-          </ScrollLink>
           <ScrollLink to="contact" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
             Contact
           </ScrollLink>
         </nav>
-        <Button variant="secondary">Join Now</Button>
+        <Link href="https://chat.whatsapp.com/Fq7fVJvZjzZEnFgu8zi5hQ" target="_blank">
+          <Button variant="secondary">Join Now</Button>
+        </Link>
       </header>
 
       <section className="min-h-screen flex items-center justify-center bg-primary text-primary-foreground py-12 md:py-24" data-aos="fade-up">
@@ -55,9 +54,11 @@ export function LandingPage() {
             Club Celestius is a student-run organization dedicated to fostering a community of computer programming and
             technology enthusiasts.
           </p>
-          <Button variant="secondary" className="mt-4">
-            Join Now
-          </Button>
+          <Link href="https://chat.whatsapp.com/Fq7fVJvZjzZEnFgu8zi5hQ" target="_blank">
+            <Button variant="secondary" className="mt-4">
+              Join Now
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -66,7 +67,7 @@ export function LandingPage() {
           <div className="space-y-4" data-aos="fade-right">
             <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left">About Club Celestius</h2>
             <p className="text-center md:text-left">
-              Club Celestius is a student-run organization that aims to provide a platform for computer programming and
+              Club Celestius is a student-run organization that aims to provide a platform for competitive programming and
               technology enthusiasts to develop their skills, collaborate on innovative projects, and connect with
               industry professionals.
             </p>
@@ -122,9 +123,9 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-muted text-foreground py-12 md:py-24 flex items-center justify-center"  data-aos="fade-up">
-        <div className="container px-4 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">Club Structure</h2>
+      <section id="events" className="bg-muted text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12">
+        <div className="container px-4 md:px-6 space-y-4" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-bold text-begin">Club Structure</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-card p-4 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">Executive Committee</h3>
@@ -138,15 +139,13 @@ export function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="events" className="bg-muted text-foreground py-12 md:py-24 flex items-center justify-center">
         <div className="container px-4 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold" data-aos="fade-up">Upcoming Events</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">Upcoming Events</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card data-aos="fade-up" data-aos-delay="100">
-            <CardHeader>
-                <CardTitle>Coding Workshops</CardTitle>
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Workshops</CardTitle>
                 <CardDescription>
                   Sessions on programming languages and technologies to enhance your skills.
                 </CardDescription>
@@ -155,7 +154,7 @@ export function LandingPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>September 15, 2023</span>
+                    <span>September 16, 2024</span>
                   </div>
                   <Button variant="secondary" size="sm">
                     Register
@@ -163,6 +162,7 @@ export function LandingPage() {
                 </div>
               </CardContent>
             </Card>
+
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
                 <CardTitle>Industry Expert Talks</CardTitle>
@@ -174,7 +174,7 @@ export function LandingPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>October 1, 2023</span>
+                    <span>October 1, 2024</span>
                   </div>
                   <Button variant="secondary" size="sm">
                     Register
@@ -182,18 +182,79 @@ export function LandingPage() {
                 </div>
               </CardContent>
             </Card>
+
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
                 <CardTitle>Hackathon</CardTitle>
                 <CardDescription>
-                  A 48-hour coding challenge to solve real-world problems.
+                  A 24-hour coding challenge to solve real-world problems.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div>
                     <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2023</span>
+                    <span>November 12, 2024</span>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Register
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Hackathon</CardTitle>
+                <CardDescription>
+                  A 24-hour coding challenge to solve real-world problems.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
+                    <span>November 12, 2024</span>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Register
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Hackathon</CardTitle>
+                <CardDescription>
+                  A 24-hour coding challenge to solve real-world problems.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
+                    <span>November 12, 2024</span>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Register
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Hackathon</CardTitle>
+                <CardDescription>
+                  A 24-hour coding challenge to solve real-world problems.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
+                    <span>November 12, 2024</span>
                   </div>
                   <Button variant="secondary" size="sm">
                     Register
@@ -205,13 +266,15 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section id="projects" className="bg-background text-foreground py-12 md:py-24 flex items-center justify-center">
+      <section id="projects" className="bg-background text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center">
         <div className="container px-4 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold" data-aos="fade-up">Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">
+            Projects
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card data-aos="fade-up" data-aos-delay="100">
-            <CardHeader>
-                <CardTitle>Project 1</CardTitle>
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Bus Tracker</CardTitle>
                 <CardDescription>
                   A collaborative project focused on developing a mobile application.
                 </CardDescription>
@@ -222,15 +285,18 @@ export function LandingPage() {
                     <BriefcaseIcon className="w-5 h-5 mr-2 inline" />
                     <span>In Progress</span>
                   </div>
-                  <Button variant="secondary" size="sm">
-                    Contribute
-                  </Button>
+                  <Link href="https://github.com/Ajaybalajiprasad/BusTracker" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      Contribute
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
+
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Project 2</CardTitle>
+                <CardTitle>Prepex</CardTitle>
                 <CardDescription>
                   An open-source contribution project focusing on web development.
                 </CardDescription>
@@ -241,15 +307,18 @@ export function LandingPage() {
                     <CodeIcon className="w-5 h-5 mr-2 inline" />
                     <span>Open</span>
                   </div>
-                  <Button variant="secondary" size="sm">
-                    Contribute
-                  </Button>
+                  <Link href="https://github.com/PrepExe/PrepEx-APP" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      Contribute
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
+
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Project 3</CardTitle>
+                <CardTitle>Chat Bot</CardTitle>
                 <CardDescription>
                   A research-based project aimed at exploring AI technologies.
                 </CardDescription>
@@ -260,101 +329,105 @@ export function LandingPage() {
                     <TrophyIcon className="w-5 h-5 mr-2 inline" />
                     <span>Completed</span>
                   </div>
-                  <Button variant="secondary" size="sm">
-                    View
-                  </Button>
+                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      View
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Chat Bot</CardTitle>
+                <CardDescription>
+                  A research-based project aimed at exploring AI technologies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
+                    <span>Completed</span>
+                  </div>
+                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      View
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Chat Bot</CardTitle>
+                <CardDescription>
+                  A research-based project aimed at exploring AI technologies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
+                    <span>Completed</span>
+                  </div>
+                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      View
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Chat Bot</CardTitle>
+                <CardDescription>
+                  A research-based project aimed at exploring AI technologies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
+                    <span>Completed</span>
+                  </div>
+                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                    <Button variant="secondary" size="sm">
+                      View
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+
           </div>
         </div>
       </section>
 
-      <GitHubIds />
 
-      <section id="mentorship" className="bg-muted text-foreground py-12 md:py-24 flex items-center justify-center">
-        <div className="container px-4 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold" data-aos="fade-up">Mentorship</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card data-aos="fade-up" data-aos-delay="100">
-            <CardHeader>
-                <CardTitle>Mentor 1</CardTitle>
-                <CardDescription>
-                  Experienced professional with a background in software development.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Avatar>
-                      <AvatarImage src="/mentor1.jpg" alt="Mentor 1" />
-                      <AvatarFallback>1</AvatarFallback>
-                    </Avatar>
-                    <span>John Doe</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Connect
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Mentor 2</CardTitle>
-                <CardDescription>
-                  Senior developer specializing in cloud technologies and DevOps.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Avatar>
-                      <AvatarImage src="/mentor2.jpg" alt="Mentor 2" />
-                      <AvatarFallback>2</AvatarFallback>
-                    </Avatar>
-                    <span>Jane Smith</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Connect
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Mentor 3</CardTitle>
-                <CardDescription>
-                  AI researcher with a focus on machine learning and data science.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Avatar>
-                      <AvatarImage src="/mentor3.jpg" alt="Mentor 3" />
-                      <AvatarFallback>3</AvatarFallback>
-                    </Avatar>
-                    <span>Michael Johnson</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Connect
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+      <section id="contact" className="bg-primary text-primary-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12">
+        {/* GitHub Section */}
+        <div className="container px-4 md:px-6 space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">
+            GitHub Profiles
+          </h2>
+          <GitHubIds />
         </div>
-      </section>
 
-      <section id="contact" className="bg-primary text-primary-foreground py-12 md:py-24 flex items-center justify-center">
-        <div className="container px-4 md:px-6 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">Contact Us</h2>
+        {/* Contact Us Section */}
+        <div className="container px-4 md:px-6 space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">
+            Contact Us
+          </h2>
           <div className="grid md:grid-cols-2 gap-8" data-aos="fade-right" data-aos-delay="100">
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-center md:text-left">Get in Touch</h3>
               <p className="text-center md:text-left">
-                Whether you have a question, want to join the club, or collaborate on a project, feel free to reach out
-                to us!
+                Whether you have a question, want to join the club, or collaborate on a project, feel free to reach out to us!
               </p>
               <div className="space-y-2">
                 <h4 className="font-semibold">Email:</h4>
@@ -362,7 +435,37 @@ export function LandingPage() {
               </div>
               <div className="space-y-2">
                 <h4 className="font-semibold">Follow Us:</h4>
-                <p>LinkedIn | Twitter | Instagram</p>
+                <p>
+                  <Link
+                    href="https://www.linkedin.com"
+                    passHref
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    LinkedIn
+                  </Link>
+                  {" | "}
+                  <Link
+                    href="https://www.twitter.com"
+                    passHref
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    Twitter
+                  </Link>
+                  {" | "}
+                  <Link
+                    href="https://www.instagram.com"
+                    passHref
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    Instagram
+                  </Link>
+                </p>
               </div>
             </div>
             <form className="space-y-4" data-aos="fade-left" data-aos-delay="300">
@@ -385,6 +488,7 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
       <footer className="bg-muted text-muted-foreground py-6 px-4 md:px-6 text-center">
         <p className="text-sm">&copy; 2024 Club Celestius. All rights reserved.</p>
       </footer>
