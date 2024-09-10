@@ -203,7 +203,7 @@ export function LandingPage() {
               </CardContent>
             </Card>
 
-            <Card data-aos="fade-up" data-aos-delay="100">
+            {/* <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
                 <CardTitle>Hackathon</CardTitle>
                 <CardDescription>
@@ -221,8 +221,28 @@ export function LandingPage() {
                   </Button>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
 
+            {/* <Card data-aos="fade-up" data-aos-delay="100">
+              <CardHeader>
+                <CardTitle>Hackathon</CardTitle>
+                <CardDescription>
+                  A 24-hour coding challenge to solve real-world problems.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
+                    <span>November 12, 2024</span>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Register
+                  </Button>
+                </div>
+              </CardContent>
+            </Card> */}
+{/* 
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
                 <CardTitle>Hackathon</CardTitle>
@@ -241,27 +261,7 @@ export function LandingPage() {
                   </Button>
                 </div>
               </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Hackathon</CardTitle>
-                <CardDescription>
-                  A 24-hour coding challenge to solve real-world problems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2024</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
@@ -340,9 +340,9 @@ export function LandingPage() {
 
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Chat Bot</CardTitle>
+                <CardTitle>Force++</CardTitle>
                 <CardDescription>
-                  A research-based project aimed at exploring AI technologies.
+                  An automated script which notifies of upcoming contests
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -351,7 +351,7 @@ export function LandingPage() {
                     <TrophyIcon className="w-5 h-5 mr-2 inline" />
                     <span>Completed</span>
                   </div>
-                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                  <Link href="https://github.com/adithyagenie/forceplusplus" target="_blank">
                     <Button variant="secondary" size="sm">
                       View
                     </Button>
@@ -362,9 +362,9 @@ export function LandingPage() {
 
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Chat Bot</CardTitle>
+                <CardTitle>Skillrack Captcha Solver</CardTitle>
                 <CardDescription>
-                  A research-based project aimed at exploring AI technologies.
+                  Automatic CAPTCHA solver extension for Skillrack using Tesseract.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -373,7 +373,7 @@ export function LandingPage() {
                     <TrophyIcon className="w-5 h-5 mr-2 inline" />
                     <span>Completed</span>
                   </div>
-                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                  <Link href="https://github.com/adithyagenie/skillrack-captcha-solver" target="_blank">
                     <Button variant="secondary" size="sm">
                       View
                     </Button>
@@ -384,9 +384,9 @@ export function LandingPage() {
 
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Chat Bot</CardTitle>
+                <CardTitle>Emotion Detector</CardTitle>
                 <CardDescription>
-                  A research-based project aimed at exploring AI technologies.
+                  A Convolutional Neural Network (CNN) for emotion detection
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -395,7 +395,7 @@ export function LandingPage() {
                     <TrophyIcon className="w-5 h-5 mr-2 inline" />
                     <span>Completed</span>
                   </div>
-                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
+                  <Link href="https://github.com/Chorko/Emotion_Detection_CNN-main" target="_blank">
                     <Button variant="secondary" size="sm">
                       View
                     </Button>
@@ -437,7 +437,7 @@ export function LandingPage() {
                 <h4 className="font-semibold">Follow Us:</h4>
                 <p>
                   <Link
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/company/club-celestius-cit/"
                     passHref
                     target="_blank"
                     rel="noopener noreferrer"
@@ -447,7 +447,7 @@ export function LandingPage() {
                   </Link>
                   {" | "}
                   <Link
-                    href="https://www.twitter.com"
+                    href="https://x.com/celestius_cit"
                     passHref
                     target="_blank"
                     rel="noopener noreferrer"
@@ -457,7 +457,7 @@ export function LandingPage() {
                   </Link>
                   {" | "}
                   <Link
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/celestius.cit/"
                     passHref
                     target="_blank"
                     rel="noopener noreferrer"
