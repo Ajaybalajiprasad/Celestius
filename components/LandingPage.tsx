@@ -42,7 +42,7 @@ export function LandingPage() {
             Contact
           </ScrollLink>
         </nav>
-        <Link href="https://chat.whatsapp.com/Fq7fVJvZjzZEnFgu8zi5hQ" target="_blank">
+        <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
           <Button variant="secondary">Join Now</Button>
         </Link>
       </header>
@@ -54,7 +54,7 @@ export function LandingPage() {
             Club Celestius is a student-run organization dedicated to fostering a community of computer programming and
             technology enthusiasts.
           </p>
-          <Link href="https://chat.whatsapp.com/Fq7fVJvZjzZEnFgu8zi5hQ" target="_blank">
+          <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
             <Button variant="secondary" className="mt-4">
               Join Now
             </Button>
@@ -348,8 +348,8 @@ export function LandingPage() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div>
-                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
-                    <span>Completed</span>
+                    <BriefcaseIcon className="w-5 h-5 mr-2 inline" />
+                    <span>In Progress</span>
                   </div>
                   <Link href="https://github.com/adithyagenie/forceplusplus" target="_blank">
                     <Button variant="secondary" size="sm">
