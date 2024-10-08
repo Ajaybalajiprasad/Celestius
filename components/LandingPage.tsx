@@ -1,25 +1,124 @@
 'use client'
 import Link from "next/link"
+import { useState, useEffect } from 'react'
+import ReactCardFlip from 'react-card-flip'
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
-import { BriefcaseIcon, CalendarIcon, CodeIcon, CombineIcon, HandIcon, InfoIcon, MilestoneIcon, TrophyIcon } from '@/components/ui/svgs';
 import { Textarea } from "@/components/ui/textarea"
-import { Link as ScrollLink, Element } from 'react-scroll';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { Link as ScrollLink, Element } from 'react-scroll'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { Briefcase, Calendar, Code, Users, Hand, Info, Milestone, Trophy, Handshake } from 'lucide-react'
 import { GitHubIds } from "./Github"
 
 export function LandingPage() {
+  const [clickCount, setClickCount] = useState(0)
+  const [isFlipped, setIsFlipped] = useState(false)
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
+    })
+  }, [])
+
+  const handleProjectClick = () => {
+    setClickCount(prevCount => {
+      const newCount = prevCount + 1;
+
+      if (isFlipped && newCount === 2) {
+        setIsFlipped(false);
+        return 0; // Reset count after 3 flips when flipping back
+      } else if (!isFlipped && newCount === 2) {
+        setIsFlipped(true);
+        return 0; // Reset count after 3 flips when flipping forward
+      }
+
+      return newCount;
     });
-  }, []);
+  };
+
+  const renderProjectCards = () => {
+    const projects = isFlipped ? [
+      { 
+        title: "Unified information sharing platform", 
+        description: "Unified Info Sharing Platform centralizes communication and collaboration into a single, streamlined hub. Offering secure file sharing, real-time data sync, team collaboration tools, and project management, it enhances productivity by simplifying task coordination and workflow management. Its versatile design supports diverse activities, making it ideal for both individuals and teams to collaborate efficiently in one seamless, easy-to-use interface.", 
+        status: "Team up,Collaborate,Develop", 
+        link: "#" 
+      },
+    ] : [
+      { 
+        title: "Bus Tracker", 
+        description: "A collaborative project focused on developing a mobile application.", 
+        status: "In Progress", 
+        link: "https://github.com/Ajaybalajiprasad/BusTracker" 
+      },
+      { 
+        title: "Prepex", 
+        description: "A project focusing on student productivity.", 
+        status: "Completed", 
+        link: "https://prepex.vercel.app/" 
+      },
+      { 
+        title: "Chat Bot", 
+        description: "A research-based project aimed at exploring AI technologies.", 
+        status: "Completed", 
+        link: "https://github.com/KRISHNASAKTHIESWAR/Interactive-Chatbot" 
+      },
+      { 
+        title: "Force++", 
+        description: "An automated script which notifies of upcoming contests", 
+        status: "In Progress", 
+        link: "https://github.com/adithyagenie/forceplusplus" 
+      },
+      { 
+        title: "Skillrack Captcha Solver", 
+        description: "Automatic CAPTCHA solver extension for Skillrack using Tesseract.", 
+        status: "Completed", 
+        link: "https://github.com/adithyagenie/skillrack-captcha-solver" 
+      },
+      { 
+        title: "Emotion Detector", 
+        description: "A Convolutional Neural Network (CNN) for emotion detection", 
+        status: "Completed", 
+        link: "https://github.com/Chorko/Emotion-recognition-using-efficientnet" 
+      },
+    ];
+
+    return (
+      <div className={`grid ${isFlipped ? 'md:grid-cols-1 lg:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-3'} gap-4`}>
+        {projects.map((project, index) => (
+          <Card key={index} className={isFlipped ? "flipped-card" : ""} data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
+            <CardHeader>
+              <CardTitle>{project.title}</CardTitle>
+              <CardDescription>{project.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <div>
+                  {project.status === "In Progress" && <Briefcase className="w-5 h-5 mr-2 inline" />}
+                  {project.status === "Open" && <Code className="w-5 h-5 mr-2 inline" />}
+                  {project.status === "Completed" && <Trophy className="w-5 h-5 mr-2 inline" />}
+                  {project.status === "Team up,Collaborate,Develop" && <Handshake className="w-5 h-5 mr-2 inline" />}
+                  <span>{project.status}</span>
+                </div>
+                <Link href={project.link} target="_blank">
+                  {!isFlipped && (
+                    <Button variant="secondary" size="sm">
+                      {project.status === "Completed" ? "View" : "Contribute"}
+                    </Button>
+                  )}
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -92,28 +191,28 @@ export function LandingPage() {
           </div>
           <div className="grid grid-cols-2 gap-4" data-aos="fade-left">
             <div className="bg-card p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
-              <HandIcon className="w-12 h-12 text-primary" />
+              <Hand className="w-12 h-12 text-primary" />
               <h3 className="text-xl font-semibold mt-2 text-center">Skill Development</h3>
               <p className="text-muted-foreground text-center mt-1">
                 Enhance your programming skills through workshops, coding challenges, and hands-on projects.
               </p>
             </div>
             <div className="bg-card p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
-              <CombineIcon className="w-12 h-12 text-primary" />
+              <Users className="w-12 h-12 text-primary" />
               <h3 className="text-xl font-semibold mt-2 text-center">Collaboration</h3>
               <p className="text-muted-foreground text-center mt-1">
                 Collaborate with fellow members on innovative projects and learn from each other's experiences.
               </p>
             </div>
             <div className="bg-card p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
-              <InfoIcon className="w-12 h-12 text-primary" />
+              <Info className="w-12 h-12 text-primary" />
               <h3 className="text-xl font-semibold mt-2 text-center">Innovation</h3>
               <p className="text-muted-foreground text-center mt-1">
                 Explore new technologies and participate in coding competitions to showcase your innovative ideas.
               </p>
             </div>
             <div className="bg-card p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
-              <MilestoneIcon className="w-12 h-12 text-primary" />
+              <Milestone className="w-12 h-12 text-primary" />
               <h3 className="text-xl font-semibold mt-2 text-center">Mentorship</h3>
               <p className="text-muted-foreground text-center mt-1">
                 Benefit from the guidance and expertise of our senior members, alumni, and industry professionals.
@@ -145,272 +244,59 @@ export function LandingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Workshops</CardTitle>
+                <CardTitle>Inauguration</CardTitle>
                 <CardDescription>
-                  Sessions on programming languages and technologies to enhance your skills.
+                  Be part of a vibrant community shaping the future of technology
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>September 16, 2024</span>
+                    <Calendar className="w-5 h-5 mr-2 inline" />
+                    <span>October 9, 2024</span>
                   </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
                 </div>
               </CardContent>
             </Card>
 
             <Card data-aos="fade-up" data-aos-delay="100">
               <CardHeader>
-                <CardTitle>Industry Expert Talks</CardTitle>
+                <CardTitle>Industry Expert Talk</CardTitle>
                 <CardDescription>
-                  Sessions with tech professionals sharing their experiences.
+                  Sessions with tech professional sharing their experiences.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>October 1, 2024</span>
+                    <Calendar className="w-5 h-5 mr-2 inline" />
+                    <span>October 9, 2024</span>
                   </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
                 </div>
               </CardContent>
             </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Hackathon</CardTitle>
-                <CardDescription>
-                  A 24-hour coding challenge to solve real-world problems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2024</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Hackathon</CardTitle>
-                <CardDescription>
-                  A 24-hour coding challenge to solve real-world problems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2024</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
-                </div>
-              </CardContent>
-            </Card> */}
-
-            {/* <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Hackathon</CardTitle>
-                <CardDescription>
-                  A 24-hour coding challenge to solve real-world problems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2024</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
-                </div>
-              </CardContent>
-            </Card> */}
-{/* 
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Hackathon</CardTitle>
-                <CardDescription>
-                  A 24-hour coding challenge to solve real-world problems.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                    <span>November 12, 2024</span>
-                  </div>
-                  <Button variant="secondary" size="sm">
-                    Register
-                  </Button>
-                </div>
-              </CardContent>
-            </Card> */}
           </div>
         </div>
       </section>
 
-      <section id="projects" className="bg-background text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center">
+      <section id="projects" className="bg-background text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center" onClick={handleProjectClick}>
         <div className="container px-4 md:px-6 space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">
             Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Bus Tracker</CardTitle>
-                <CardDescription>
-                  A collaborative project focused on developing a mobile application.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <BriefcaseIcon className="w-5 h-5 mr-2 inline" />
-                    <span>In Progress</span>
-                  </div>
-                  <Link href="https://github.com/Ajaybalajiprasad/BusTracker" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      Contribute
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Prepex</CardTitle>
-                <CardDescription>
-                  An open-source contribution project focusing on web development.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CodeIcon className="w-5 h-5 mr-2 inline" />
-                    <span>Open</span>
-                  </div>
-                  <Link href="https://github.com/PrepExe/PrepEx-APP" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      Contribute
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Chat Bot</CardTitle>
-                <CardDescription>
-                  A research-based project aimed at exploring AI technologies.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
-                    <span>Completed</span>
-                  </div>
-                  <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      View
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Force++</CardTitle>
-                <CardDescription>
-                  An automated script which notifies of upcoming contests
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <BriefcaseIcon className="w-5 h-5 mr-2 inline" />
-                    <span>In Progress</span>
-                  </div>
-                  <Link href="https://github.com/adithyagenie/forceplusplus" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      View
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Skillrack Captcha Solver</CardTitle>
-                <CardDescription>
-                  Automatic CAPTCHA solver extension for Skillrack using Tesseract.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
-                    <span>Completed</span>
-                  </div>
-                  <Link href="https://github.com/adithyagenie/skillrack-captcha-solver" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      View
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card data-aos="fade-up" data-aos-delay="100">
-              <CardHeader>
-                <CardTitle>Emotion Detector</CardTitle>
-                <CardDescription>
-                  A Convolutional Neural Network (CNN) for emotion detection
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <TrophyIcon className="w-5 h-5 mr-2 inline" />
-                    <span>Completed</span>
-                  </div>
-                  <Link href="https://github.com/Chorko/Emotion_Detection_CNN-main" target="_blank">
-                    <Button variant="secondary" size="sm">
-                      View
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-          </div>
+          <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+            <div key="front">
+              
+              {renderProjectCards()}
+            </div>
+            <div key="back">
+              {renderProjectCards()}
+            </div>
+          </ReactCardFlip>
         </div>
       </section>
 
-
       <section id="contact" className="bg-primary text-primary-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12">
-        {/* GitHub Section */}
         <div className="container px-4 md:px-6 space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">
             GitHub Profiles
@@ -418,7 +304,6 @@ export function LandingPage() {
           <GitHubIds />
         </div>
 
-        {/* Contact Us Section */}
         <div className="container px-4 md:px-6 space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">
             Contact Us
