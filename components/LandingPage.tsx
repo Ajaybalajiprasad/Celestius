@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from "next/link"
 import { Element, Link as ScrollLink } from 'react-scroll'
+import { motion, AnimatePresence } from 'framer-motion'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,7 @@ import { Label } from "@/components/ui/label"
 import { BriefcaseIcon, CalendarIcon, CodeIcon, CombineIcon, HandIcon, InfoIcon, MilestoneIcon, TrophyIcon } from 'lucide-react'
 
 export default function LandingPage() {
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -21,8 +23,48 @@ export default function LandingPage() {
     })
   }, [])
 
+  const projects = [
+    { 
+      title: "Bus Tracker", 
+      description: "A collaborative project focused on developing a mobile application.", 
+      status: "In Progress", 
+      link: "https://github.com/Ajaybalajiprasad/BusTracker" 
+    },
+    { 
+      title: "Prepex", 
+      description: "An open-source contribution project focusing on web development.", 
+      status: "Open", 
+      link: "https://prepex.vercel.app/"  
+    },
+    { 
+      title: "Chat Bot", 
+      description: "A research-based project aimed at exploring AI technologies.", 
+      status: "Completed", 
+      link: "https://github.com/KRISHNASAKTHIESWAR/Interactive-Chatbot" 
+    },
+    { 
+      title: "Force++", 
+      description: "An automated script which notifies of upcoming contests.", 
+      status: "In Progress", 
+      link: "https://github.com/adithyagenie/forceplusplus" 
+    },
+    { 
+      title: "Skillrack Captcha Solver", 
+      description: "Automatic CAPTCHA solver extension for Skillrack using Tesseract.", 
+      status: "Completed", 
+      link: "https://github.com/adithyagenie/skillrack-captcha-solver" 
+    },
+    { 
+      title: "Emotion Detector", 
+      description: "A Convolutional Neural Network (CNN) for emotion detection.", 
+      status: "Completed", 
+      link: "https://github.com/Chorko/Emotion-recognition-using-efficientnet" 
+    },
+  ]
+
   return (
     <div className="relative">
+
       <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between sticky top-0 z-40">
         <Link href="/" className="flex items-center gap-2" prefetch={false}>
           <img src="/icon.jpg" alt="Celestius Icon" className="h-8 w-8 mr-2" />
@@ -38,7 +80,7 @@ export default function LandingPage() {
           <ScrollLink to="projects" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
             Projects
           </ScrollLink>
-          <Link href="/hiringpage" target="_blank" className="hover:underline underline-offset-4">
+          <Link href="/hiringpage" className="hover:underline underline-offset-4">
             We're Hiring
           </Link>
           <ScrollLink to="contact" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
@@ -51,7 +93,12 @@ export default function LandingPage() {
       </header>
 
       <main>
-        <section className="min-h-screen flex items-center justify-center bg-primary text-primary-foreground py-12 md:py-24" data-aos="fade-up">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="min-h-screen flex items-center justify-center bg-primary text-primary-foreground py-12 md:py-24"
+        >
           <div className="container px-4 md:px-6 text-center space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold">Explore, Learn, and Innovate</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto">
@@ -64,10 +111,17 @@ export default function LandingPage() {
               </Button>
             </Link>
           </div>
-        </section>
+        </motion.section>
 
         <Element name="about">
-          <section id="about" className="min-h-screen flex items-center justify-center bg-background text-foreground py-12 md:py-24">
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            id="about"
+            className="min-h-screen flex items-center justify-center bg-background text-foreground py-12 md:py-24"
+          >
             <div className="container px-4 md:px-6 grid md:grid-cols-2 gap-8">
               <div className="space-y-4" data-aos="fade-right">
                 <h2 className="text-3xl md:text-4xl font-bold text-center md:text-left">About Club Celestius</h2>
@@ -114,11 +168,18 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
         </Element>
 
         <Element name="events">
-          <section id="events" className="bg-muted text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12">
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            id="events"
+            className="bg-muted text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12"
+          >
             <div className="container px-4 md:px-6 space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">Upcoming Events</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -183,88 +244,67 @@ export default function LandingPage() {
                 </Card>
               </div>
             </div>
-          </section>
+          </motion.section>
         </Element>
 
         <Element name="projects">
-          <section id="projects" className="bg-background text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center">
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            id="projects"
+            className="bg-background text-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center"
+          >
             <div className="container px-4 md:px-6 space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-begin" data-aos="fade-up">
                 Projects
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Card data-aos="fade-up" data-aos-delay="100">
-                  <CardHeader>
-                    <CardTitle>Bus Tracker</CardTitle>
-                    <CardDescription>
-                      A collaborative project focused on developing a mobile application.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <BriefcaseIcon className="w-5 h-5 mr-2 inline" />
-                        <span>In Progress</span>
-                      </div>
-                      <Link href="https://github.com/Ajaybalajiprasad/BusTracker" target="_blank">
-                        <Button variant="secondary" size="sm">
-                          Contribute
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card data-aos="fade-up" data-aos-delay="200">
-                  <CardHeader>
-                    <CardTitle>Prepex</CardTitle>
-                    <CardDescription>
-                      An open-source contribution project focusing on web development.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <CodeIcon className="w-5 h-5 mr-2 inline" />
-                        <span>Open</span>
-                      </div>
-                      <Link href="https://github.com/PrepExe/PrepEx-APP" target="_blank">
-                        <Button variant="secondary" size="sm">
-                          Contribute
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card data-aos="fade-up" data-aos-delay="300">
-                  <CardHeader>
-                    <CardTitle>Chat Bot</CardTitle>
-                    <CardDescription>
-                      A research-based project aimed at exploring AI technologies.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <TrophyIcon className="w-5 h-5 mr-2 inline" />
-                        <span>Completed</span>
-                      </div>
-                      <Link href="https://github.com/adithyaa-s/skill-up" target="_blank">
-                        <Button variant="secondary" size="sm">
-                          View
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                {projects.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
+                      <CardHeader>
+                        <CardTitle>{project.title}</CardTitle>
+                        <CardDescription>{project.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between">
+                          <div>
+                            {project.status === "In Progress" && <BriefcaseIcon className="w-5 h-5 mr-2 inline" />}
+                            {project.status === "Open" && <CodeIcon className="w-5 h-5 mr-2 inline" />}
+                            {project.status === "Completed" &&   <TrophyIcon className="w-5 h-5 mr-2 inline" />}
+                            <span>{project.status}</span>
+                          </div>
+                          <Link href={project.link} target="_blank">
+                            <Button variant="secondary" size="sm">
+                              {project.status === "Completed" ? "View" : "Contribute"}
+                            </Button>
+                          </Link>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </section>
+          </motion.section>
         </Element>
 
         <Element name="contact">
-          <section id="contact" className="bg-primary text-primary-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12">
+          <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            id="contact"
+            className="bg-primary text-primary-foreground min-h-screen py-12 md:py-24 flex flex-col items-center justify-center space-y-12"
+          >
             <div className="container px-4 md:px-6 space-y-8">
               <h2 className="text-3xl md:text-4xl font-bold text-center" data-aos="fade-up">
                 Contact Us
@@ -302,7 +342,6 @@ export default function LandingPage() {
                       {" | "}
                       <Link
                         href="https://www.instagram.com/celestius.cit/"
-
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:underline"
@@ -331,7 +370,7 @@ export default function LandingPage() {
                 </form>
               </div>
             </div>
-          </section>
+          </motion.section>
         </Element>
       </main>
 
