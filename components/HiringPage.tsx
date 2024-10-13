@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import Link from "next/link"
-import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { X } from 'lucide-react'
-import { db } from "@/lib/firebase" // Adjust the path based on your project structure
-import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { useState } from 'react';
+import Link from "next/link";
+import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { X } from 'lucide-react';
+import { db } from "@/lib/firebase"; // Ensure the path is correct
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 interface Team {
   id: number;
@@ -24,11 +24,11 @@ const teams: Team[] = [
   { id: 3, name: "Editing Team", description: "As a Video Editing Specialist for our club, you'll play a key role in bringing our video content to life. Your main responsibility will be to edit and enhance videos and work closely with both the media and social media teams to create engaging and visually appealing content that resonates with our audience. Your creativity and editing skills will be vital in boosting our online presence and fostering community engagement. Please submit your work for review by our team." },
   { id: 4, name: "Marketing Team", description: "As a member of the PR Marketing Team for our club, your primary responsibility will be to develop strategies and engage with other clubs to foster collaboration and share ideas. You'll work on crafting initiatives that enhance our club's visibility and build positive relationships within the community. Your role will involve communicating our initiatives and promoting our events to a broader audience. If you're enthusiastic about networking and have a passion for innovative solutions, we'd love to have you on board! Please submit your application for review." },
   { id: 5, name: "Poster and Logo Designer", description: "As a Poster and Logo Designer for our club, your main responsibility will be to create visually appealing posters and logos that effectively communicate our events and initiatives. Your artistic skills will play a crucial role in attracting attention and generating interest in our activities. If you have a passion for design and a flair for creativity, we'd love to see your work! Please submit your work for review." },
-]
+];
 
 export default function HiringPage() {
-  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null)
-  const [isFormOpen, setIsFormOpen] = useState(false)
+  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     number: '',
@@ -40,18 +40,18 @@ export default function HiringPage() {
     marq2: '',
     marq3: '',
     contq: '',
-  })
-  const [errors, setErrors] = useState<{ [key: string]: string }>({})
-  const [success, setSuccess] = useState<boolean>(false)
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [success, setSuccess] = useState<boolean>(false);
 
   const openForm = (team: Team) => {
-    setSelectedTeam(team)
-    setIsFormOpen(true)
-  }
+    setSelectedTeam(team);
+    setIsFormOpen(true);
+  };
 
   const closeForm = () => {
-    setIsFormOpen(false)
-    setSelectedTeam(null)
+    setIsFormOpen(false);
+    setSelectedTeam(null);
     setFormData({
       name: '',
       number: '',
@@ -63,84 +63,88 @@ export default function HiringPage() {
       marq2: '',
       marq3: '',
       contq: '',
-    })
-    setErrors({})
-    setSuccess(false)
-  }
+    });
+    setErrors({});
+    setSuccess(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
+    });
     // Remove error message as user types
     setErrors({
       ...errors,
       [e.target.name]: '',
-    })
-  }
+    });
+  };
 
   const validate = (): boolean => {
-    const newErrors: { [key: string]: string } = {}
-    if (!formData.name.trim()) newErrors.name = "Name is required."
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.number.trim()) {
-      newErrors.number = "Phone Number is required."
+      newErrors.number = "Phone Number is required.";
     } else if (!/^\d{10}$/.test(formData.number.trim())) {
-      newErrors.number = "Phone Number must be exactly 10 digits."
+      newErrors.number = "Phone Number must be exactly 10 digits.";
     }
     if (!formData.email.trim()) {
-      newErrors.email = "College Email is required."
+      newErrors.email = "College Email is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      newErrors.email = "Invalid email format."
+      newErrors.email = "Invalid email format.";
     }
-    if (!formData.dept.trim()) newErrors.dept = "Department is required."
-    if (!formData.sec.trim()) newErrors.sec = "Section is required."
+    if (!formData.dept.trim()) newErrors.dept = "Department is required.";
+    if (!formData.sec.trim()) newErrors.sec = "Section is required.";
 
     // Conditional validations
     if (["Media Team", "Editing Team", "Poster and Logo Designer"].includes(selectedTeam?.name || "")) {
       if (!formData.gdrive.trim()) {
-        newErrors.gdrive = "Google Drive link is required."
+        newErrors.gdrive = "Google Drive link is required.";
       } else if (!/^https?:\/\/.+/.test(formData.gdrive.trim())) {
-        newErrors.gdrive = "Invalid URL format."
+        newErrors.gdrive = "Invalid URL format.";
       }
     }
 
     if (selectedTeam?.name === "Marketing Team") {
-      if (!formData.marq1.trim()) newErrors.marq1 = "This field is required."
-      if (!formData.marq2.trim()) newErrors.marq2 = "This field is required."
-      if (!formData.marq3.trim()) newErrors.marq3 = "This field is required."
+      if (!formData.marq1.trim()) newErrors.marq1 = "This field is required.";
+      if (!formData.marq2.trim()) newErrors.marq2 = "This field is required.";
+      if (!formData.marq3.trim()) newErrors.marq3 = "This field is required.";
     }
 
     if (selectedTeam?.name === "Content Creation Team") {
-      if (!formData.contq.trim()) newErrors.contq = "This field is required."
+      if (!formData.contq.trim()) newErrors.contq = "This field is required.";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault() // Prevent default form submission
-    if (!selectedTeam) return
+    e.preventDefault(); // Prevent default form submission
+    if (!selectedTeam) return;
 
     if (!validate()) {
-      return // Stop submission if validation fails
+      return; // Stop submission if validation fails
     }
 
     try {
-      await addDoc(collection(db, "applications"), {
+      const teamCollectionRef = collection(db, selectedTeam.name.toString());
+
+      await addDoc(teamCollectionRef, {
         teamId: selectedTeam.id,
         teamName: selectedTeam.name,
         ...formData,
         submittedAt: Timestamp.now(),
-      })
-      setSuccess(true)
-      setTimeout(closeForm, 2000)
+      });
+
+      setSuccess(true);
+      // Optionally, keep the modal open to show success message before closing
+      setTimeout(closeForm, 1500);
     } catch (err) {
-      console.error("Error adding document: ", err)
-      setErrors({ submit: "There was an error submitting your application. Please try again." })
+      console.error("Error adding document: ", err);
+      setErrors({ submit: "There was an error submitting your application. Please try again." });
     }
-  }
+  };
 
   // Optional: Disable submit button if form is incomplete
   const isFormValid = (): boolean => {
@@ -152,29 +156,29 @@ export default function HiringPage() {
       !formData.dept.trim() ||
       !formData.sec.trim()
     ) {
-      return false
+      return false;
     }
 
     if (["Media Team", "Editing Team", "Poster and Logo Designer"].includes(selectedTeam?.name || "")) {
-      if (!formData.gdrive.trim()) return false
+      if (!formData.gdrive.trim()) return false;
     }
 
     if (selectedTeam?.name === "Marketing Team") {
-      if (!formData.marq1.trim() || !formData.marq2.trim() || !formData.marq3.trim()) return false
+      if (!formData.marq1.trim() || !formData.marq2.trim() || !formData.marq3.trim()) return false;
     }
 
     if (selectedTeam?.name === "Content Creation Team") {
-      if (!formData.contq.trim()) return false
+      if (!formData.contq.trim()) return false;
     }
 
-    return true
-  }
+    return true;
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !isFormValid()) {
-      e.preventDefault()
+      e.preventDefault();
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -296,7 +300,7 @@ export default function HiringPage() {
                 </div>
 
                 {/* Conditional Fields */}
-                {(["Media Team", "Editing Team", "Poster and Logo Designer"].includes(selectedTeam.name)) && (
+                {["Media Team", "Editing Team", "Poster and Logo Designer"].includes(selectedTeam.name) && (
                   <div>
                     <Label htmlFor="gdrive">Showcase Your Work</Label>
                     <Input
@@ -389,5 +393,5 @@ export default function HiringPage() {
         <p className="text-sm">&copy; 2024 Club Celestius. All rights reserved.</p>
       </footer>
     </div>
-  )
+  );
 }

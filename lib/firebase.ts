@@ -1,6 +1,6 @@
 // lib/firebase.ts
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app"
-import { getFirestore, Firestore } from "firebase/firestore"
+import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,6 +13,5 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 const db = getFirestore(app);
-console.log(db);
 
 export { db };
