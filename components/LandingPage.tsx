@@ -87,7 +87,8 @@ export default function LandingPage() {
             Contact
           </ScrollLink>
         </nav>
-        <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
+        {/* Rerouting to Hiring Page */}
+        <Link href="https://cit-celestius.vercel.app/hiringpage" target="_blank">
           <Button variant="secondary">Join Now</Button>
         </Link>
       </header>
