@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { X } from 'lucide-react';
+import { X } from "lucide-react";  // Close icon
 import { db } from "@/lib/firebase"; // Ensure the path is correct
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
@@ -188,7 +188,7 @@ export default function HiringPage() {
           <img src="/icon.jpg" alt="Celestius Icon" className="h-8 w-8 mr-2" />
           <span className="text-xl font-bold">Celestius</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="flex items-center gap-6">
           <Link href="/" className="hover:underline underline-offset-4">Home</Link>
         </nav>
       </header>
@@ -376,7 +376,6 @@ export default function HiringPage() {
                   </div>
                 )}
 
-                {/* Submission Errors and Success Messages */}
                 {errors.submit && <p className="text-red-500">{errors.submit}</p>}
                 {success && <p className="text-green-500">Your application has been submitted successfully!</p>}
 
