@@ -100,9 +100,9 @@ export default function LandingPage() {
               Club Celestius is a student-run organization dedicated to fostering a community of computer programming and
               technology enthusiasts.
             </p>
-            <Link href="/hiringpage" target="_blank">
+            <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
               <Button variant="secondary" className="mt-4">
-                We're Hiring
+                Join Now
               </Button>
             </Link>
           </div>
