@@ -395,6 +395,102 @@
 //   );
 //  }
 
+// "use client"
+
+// import { useEffect, useState, useRef } from 'react'
+// import Link from "next/link"
+// import { motion, useMotionValue, useTransform } from 'framer-motion'
+// import { Card, CardContent } from "@/components/ui/card"
+
+// export default function HiringPage() {
+//   const [isLoading, setIsLoading] = useState(true)
+//   const constraintsRef = useRef(null)
+
+//   const x = useMotionValue(0)
+//   const y = useMotionValue(0)
+//   const rotateX = useTransform(y, [-100, 100], [30, -30])
+//   const rotateY = useTransform(x, [-100, 100], [-30, 30])
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setIsLoading(false)
+//     }, 2000) // Simulating a 2-second loading time
+
+//     return () => clearTimeout(timer)
+//   }, [])
+
+//   return (
+//     <div className="min-h-screen bg-background flex flex-col">
+//       {/* Header */}
+//       <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between sticky top-0 z-40">
+//         <Link href="/" className="flex items-center gap-2" prefetch={false}>
+//           <img src="/icon.jpg" alt="Celestius Icon" className="h-8 w-8 mr-2" />
+//           <span className="text-xl font-bold">Celestius</span>
+//         </Link>
+//         <nav className="flex items-center gap-6">
+//           <Link href="/" className="hover:underline underline-offset-4">Home</Link>
+//         </nav>
+//       </header>
+
+//       {/* Main Content */}
+//       <main className="flex-grow flex items-center justify-center p-4" ref={constraintsRef}>
+//         <motion.div
+//           drag
+//           dragConstraints={constraintsRef}
+//           style={{
+//             x,
+//             y,
+//             rotateX,
+//             rotateY,
+//             z: 100,
+//           }}
+//           className="w-full max-w-md mx-auto perspective-1000"
+//         >
+//           <Card className="w-full">
+//             <CardContent className="p-6 text-center">
+//               {isLoading ? (
+//                 <motion.div
+//                   className="flex justify-center items-center"
+//                   initial={{ opacity: 0 }}
+//                   animate={{ opacity: 1 }}
+//                   exit={{ opacity: 0 }}
+//                 >
+//                   <motion.div
+//                     className="w-16 h-16 border-t-4 border-primary rounded-full"
+//                     animate={{ rotate: 360 }}
+//                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+//                   />
+//                 </motion.div>
+//               ) : (
+//                 <motion.div
+//                   initial={{ opacity: 0, y: 20 }}
+//                   animate={{ opacity: 1, y: 0 }}
+//                   transition={{ duration: 0.5 }}
+//                 >
+//                   <h1 className="text-3xl font-bold mb-4">Hiring Currently Closed</h1>
+//                   <p className="text-muted-foreground mb-4">
+//                     Thank you for your interest in joining Celestius. We are not accepting applications at this time. Please check back later for future opportunities. 
+//                   </p>
+//                   <p>
+//                   (P.S.  Feel free to drag this box around)
+//                   </p>
+//                   <Link href="/" className="inline-block mt-6 font-bold text-primary-foreground hover:underline">
+//                     Return to Home
+//                   </Link>
+//                 </motion.div>
+//               )}
+//             </CardContent>
+//           </Card>
+//         </motion.div>
+//       </main>
+
+//       <footer className="bg-muted text-muted-foreground py-6 px-4 md:px-6 text-center">
+//         <p className="text-sm">&copy; 2024 Club Celestius. All rights reserved.</p>
+//       </footer>
+//     </div>
+//   )
+// }
+
 "use client"
 
 import { useEffect, useState, useRef } from 'react'
@@ -414,7 +510,7 @@ export default function HiringPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000) // Simulating a 2-second loading time
+    }, 3500) // Loading duration in milliseconds (currently set to 2 seconds)
 
     return () => clearTimeout(timer)
   }, [])
@@ -450,16 +546,24 @@ export default function HiringPage() {
             <CardContent className="p-6 text-center">
               {isLoading ? (
                 <motion.div
-                  className="flex justify-center items-center"
+                  className="flex flex-col justify-center items-center"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
                   <motion.div
-                    className="w-16 h-16 border-t-4 border-primary rounded-full"
+                    className="w-16 h-16 border-t-4 border-primary rounded-full mb-4"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   />
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-lg font-semibold text-primary-foreground  "
+                  >
+                    Irunga Bhaii ..
+                  </motion.p>
                 </motion.div>
               ) : (
                 <motion.div
@@ -469,10 +573,7 @@ export default function HiringPage() {
                 >
                   <h1 className="text-3xl font-bold mb-4">Hiring Currently Closed</h1>
                   <p className="text-muted-foreground mb-4">
-                    Thank you for your interest in joining Celestius. We are not accepting applications at this time. Please check back later for future opportunities. 
-                  </p>
-                  <p>
-                  (P.S.  Feel free to drag this box around)
+                    Thank you for your interest in joining Celestius. We are not accepting applications at this time. Please check back later for future opportunities.
                   </p>
                   <Link href="/" className="inline-block mt-6 font-bold text-primary-foreground hover:underline">
                     Return to Home
