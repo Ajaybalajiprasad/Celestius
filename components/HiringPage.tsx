@@ -236,7 +236,7 @@
 //                     <span className="sr-only">Close</span>
 //                   </Button>
 //                 </div>
-                
+
 //                 {/* Form Fields */}
 //                 <div>
 //                   <Label htmlFor="name">Name</Label>
@@ -510,7 +510,7 @@ export default function HiringPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 3500) // Loading duration in milliseconds (currently set to 2 seconds)
+    }, 3500) // Loading duration in milliseconds (currently set to 3.5 seconds)
 
     return () => clearTimeout(timer)
   }, [])
@@ -574,6 +574,9 @@ export default function HiringPage() {
                   <h1 className="text-3xl font-bold mb-4">Hiring Currently Closed</h1>
                   <p className="text-muted-foreground mb-4">
                     Thank you for your interest in joining Celestius. We are not accepting applications at this time. Please check back later for future opportunities.
+                  </p>
+                  <p>
+                    (P.S.  Feel free to drag this box around)
                   </p>
                   <Link href="/" className="inline-block mt-6 font-bold text-primary-foreground hover:underline">
                     Return to Home
