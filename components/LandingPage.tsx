@@ -63,6 +63,9 @@ export default function LandingPage() {
             Contact
           </ScrollLink>
         </nav>
+        <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
+          <Button variant="secondary">Join Now</Button>
+        </Link>
       </header>
 
       {isMenuOpen && (
@@ -103,7 +106,8 @@ export default function LandingPage() {
               Club Celestius is a student-run organization dedicated to fostering a community of computer programming and
               technology enthusiasts.
             </p>
-            <Link href="https://chat.whatsapp.com/GmdMBVnnppv1TuMTbGgAKo" target="_blank">
+            {/* Rerouting to Hiring */}
+            <Link href="https://cit-celestius.vercel.app/hiringpage" target="_blank">
               <Button variant="secondary" className="mt-4">
                 Join Now
               </Button>
