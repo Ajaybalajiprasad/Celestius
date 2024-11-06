@@ -84,7 +84,7 @@ export default function LandingPage() {
               Our Team
             </ScrollLink> */}
             <Link href="/hiringpage" className="hover:underline" onClick={toggleMenu}>
-              We're Hiring
+              We're Recruiting
             </Link>
             <ScrollLink to="contact" smooth={true} duration={500} className="hover:underline cursor-pointer" onClick={toggleMenu}>
               Contact
@@ -103,7 +103,7 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6 text-center space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold">Explore, Learn, and Innovate</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto">
-              Club Celestius is a student-run organization dedicated to fostering a community of computer programming and
+              Club Celestius is a student-run organization dedicated to fostering a community of competitive programming and
               technology enthusiasts.
             </p>
             {/* Rerouting to Hiring */}
