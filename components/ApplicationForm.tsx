@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,10 +22,6 @@ interface ApplicationFormProps {
   onClose: () => void;
 }
 
-interface CloudinaryUploadWidgetInfo {
-  secure_url: string;
-}
-
 const jobDescriptions: { [key: string]: string } = {
   "Frontend Development": "As a Frontend Developer, you'll be responsible for creating engaging and responsive user interfaces. Please fill out the form below and mention in the comment box how you'd be a fit, what you're interested in doing, learning, and teaching. How would you contribute to the community? What technologies do you know?",
   "Backend Development": "As a Backend Developer, you'll be working on server-side logic and database interactions. Please fill out the form below and describe your experience with backend technologies, what you hope to learn, and how you can contribute to our projects.",
@@ -35,6 +31,11 @@ const jobDescriptions: { [key: string]: string } = {
 };
 
 export default function ApplicationForm({ team, onClose }: ApplicationFormProps) {
+
+  useEffect(() => {
+    console.log("Cloud name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -187,9 +188,9 @@ export default function ApplicationForm({ team, onClose }: ApplicationFormProps)
             if (uploadedURL) {
               setFormData((prev) => ({
                 ...prev,
-                resumeURL: uploadedURL, // Ensure the URL is saved
+                resumeURL: uploadedURL,
               }));
-              setErrors((prev) => ({ ...prev, resume: '' })); // Clear resume error
+              setErrors((prev) => ({ ...prev, resume: '' })); 
             } else {
               console.error("Upload failed: secure_url not found");
             }
