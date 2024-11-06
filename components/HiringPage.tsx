@@ -75,7 +75,7 @@ export default function HiringPage() {
           </motion.div>
         ) : (
           <div className="w-full max-w-4xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">We're Hiring!</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">We're Recruiting!</h1>
             <div className="space-y-6">
               {teams.map((team) => (
                 <div key={team.id} className="bg-card text-card-foreground shadow-md rounded-lg p-6 flex flex-col md:flex-row items-center justify-between">

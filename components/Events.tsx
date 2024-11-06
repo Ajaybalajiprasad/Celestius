@@ -27,11 +27,11 @@ const UpcomingEventsSection = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                  <span>September 16, 2024</span>
+                  <span>November 20, 2024</span>
                 </div>
-                <Button variant="secondary" size="sm">
+                {/* <Button variant="secondary" size="sm">
                   Register
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
@@ -47,31 +47,31 @@ const UpcomingEventsSection = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                  <span>October 1, 2024</span>
+                  <span>Decemeber 18, 2024</span>
                 </div>
-                <Button variant="secondary" size="sm">
+                {/* <Button variant="secondary" size="sm">
                   Register
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
 
           <Card data-aos="fade-up" data-aos-delay="300">
             <CardHeader>
-              <CardTitle>Hackathon</CardTitle>
+              <CardTitle>Mirabilia</CardTitle>
               <CardDescription>
-                A 24-hour coding challenge to solve real-world problems.
+              The most monumental event we've ever hosted — an unforgettable spectacle of grandeur and mystery.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
                   <CalendarIcon className="w-5 h-5 mr-2 inline" />
-                  <span>November 12, 2024</span>
+                  <span>January 2025</span>
                 </div>
-                <Button variant="secondary" size="sm">
+                {/* <Button variant="secondary" size="sm">
                   Register
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
