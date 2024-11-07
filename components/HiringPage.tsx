@@ -15,7 +15,7 @@ const teams: Team[] = [
   { id: 1, name: "Frontend Development", description: "Join our Frontend Development team to bring user interfaces to life! As a frontend developer, you'll be responsible for creating engaging and responsive web applications that provide a seamless user experience." },
   { id: 2, name: "Backend Development", description: "Become a key player in our Backend Development team, where you'll design and implement the server-side logic and database interactions that power our applications." },
   { id: 3, name: "Artificial Intelligence", description: "Dive into the exciting world of AI Development with our team! As an AI developer, you'll work on creating intelligent systems and algorithms that learn from data and make predictions or decisions." },
-  { id: 4, name: "UI/UX Designing", description: "Join our UI/UX Design team and help craft intuitive and delightful user experiences! As a UI/UX designer, you'll conduct user research, create wireframes, and design visually stunning interfaces that enhance usability and engagement." },
+  { id: 4, name: "UI-UX Designing", description: "Join our UI/UX Design team and help craft intuitive and delightful user experiences! As a UI/UX designer, you'll conduct user research, create wireframes, and design visually stunning interfaces that enhance usability and engagement." },
   { id: 5, name: "Looking for Something Else", description: "If you have other skills or interests of domains that aren't visible, which could contribute to our club, we encourage you to apply! Your creativity and passion can help shape our community and make a difference." },
 ];
 

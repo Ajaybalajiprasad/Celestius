@@ -26,15 +26,15 @@ const jobDescriptions: { [key: string]: string } = {
   "Frontend Development": "As a Frontend Developer, you'll be responsible for creating engaging and responsive user interfaces. Please fill out the form below and mention in the comment box how you'd be a fit, what you're interested in doing, learning, and teaching. How would you contribute to the community? What technologies do you know?",
   "Backend Development": "As a Backend Developer, you'll be working on server-side logic and database interactions. Please fill out the form below and describe your experience with backend technologies, what you hope to learn, and how you can contribute to our projects.",
   "Artificial Intelligence": "For the AI team, we're looking for individuals passionate about machine learning and data science. Please fill out the form and explain your AI/ML experience, projects you've worked on, and areas you're excited to explore.",
-  "UI/UX Designing": "As a UI/UX Designer, you'll be crafting intuitive and delightful user experiences. Please fill out the form and share your design philosophy, tools you're proficient with, and how you approach user-centered design.",
+  "UI UX Designing": "As a UI/UX Designer, you'll be crafting intuitive and delightful user experiences. Please fill out the form and share your design philosophy, tools you're proficient with, and how you approach user-centered design.",
   "Looking for Something Else": "If you're not seeing a tech stack you're skilled in, let us know below. Please fill out the form and provide relevant information on your expertise in your specific stack. We're always open to new skills and perspectives!"
 };
 
 export default function ApplicationForm({ team, onClose }: ApplicationFormProps) {
 
-  useEffect(() => {
-    console.log("Cloud name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
-  }, []);
+  // useEffect(() => {
+  //   console.log("Cloud name:", process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
+  // }, []);
 
   const [formData, setFormData] = useState({
     name: '',
