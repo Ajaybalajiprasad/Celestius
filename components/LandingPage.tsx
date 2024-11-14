@@ -56,9 +56,9 @@ export default function LandingPage() {
           {/* <ScrollLink to="team" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
             Our Team
           </ScrollLink> */}
-          <Link href="/hiringpage" className="hover:underline underline-offset-4">
+          {/* <Link href="/hiringpage" className="hover:underline underline-offset-4">
             We're Recruiting
-          </Link>
+          </Link> */}
           <ScrollLink to="contact" smooth={true} duration={500} className="hover:underline underline-offset-4 cursor-pointer">
             Contact
           </ScrollLink>
@@ -86,6 +86,9 @@ export default function LandingPage() {
             <Link href="/hiringpage" className="hover:underline" onClick={toggleMenu}>
               We're Recruiting
             </Link>
+            {/* <Link href="/hiringpage" className="hover:underline" onClick={toggleMenu}>
+              We're Hiring
+            </Link> */}
             <ScrollLink to="contact" smooth={true} duration={500} className="hover:underline cursor-pointer" onClick={toggleMenu}>
               Contact
             </ScrollLink>
