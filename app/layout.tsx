@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
-import { Space_Mono } from 'next/font/google';
+import { DM_Sans, Space_Mono, Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import './globals.css';
-// import TransitionLayout from './TransitionLayout'
-import { Inter } from 'next/font/google'
+import CustomCursor from '@/components/CustomCursor';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,7 +39,9 @@ export default function RootLayout({
         )}
       >
         {children}
+        <CustomCursor />
       </body>
     </html>
   );
 }
+
